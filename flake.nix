@@ -1,8 +1,9 @@
 {
   inputs = {
-    nixpkgs.url = "github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify"; # Or your preferred nixpkgs branch/commit
-    flake-utils.url = "github:meta-introspector/flake-utils?ref=feature/CRQ-016-nixify"; # Or a stable flake-utils URL
-    cargo2nix.url = "github:cargo2nix/cargo2nix/release-0.12"; # Pin to a specific release for stability
+    nixpkgs.url = "github:meta-introspector/nixpkgs?ref=feature/CRQ-016-nixify";
+    flake-utils.url = "github:meta-introspector/flake-utils?ref=feature/CRQ-016-nixify";
+    cargo2nix.url = "github:cargo2nix/cargo2nix/release-0.12";
+    rust-overlay.url = "github:meta-introspector/rust-overlay?ref=feature/CRQ-016-nixify";
   };
 
   outputs = inputs: with inputs;
@@ -11,40 +12,30 @@
         let
           pkgs = import nixpkgs {
             inherit system;
-            overlays = [ cargo2nix.overlays.default ];
+            overlays = [ cargo2nix.overlays.default rust-overlay.overlays.default ];
             config = {
               permittedInsecurePackages = [ "openssl-1.1.1w" ];
             };
           };
 
-          rustToolchain = pkgs.rust-bin.nightly."2025-09-16".default; # Example nightly
+          myRustc = pkgs.rust-bin.nightly."2025-09-16".default;
 
           rustPkgs = pkgs.rustBuilder.makePackageSet {
-            packageFun = import ./Cargo.nix; # Links to your generated Cargo.nix
-            rustChannel = "nightly"; # Or "stable"
-            rustVersion = "latest"; # Or a specific version like "1.81.0"
-
-            rootFeatures = [
-              "dlv-list/default"
-              "dlv-list/std"
-              "dlv-list/const-random"
-              "dlv-list/serde"
-            ];
-
-            packageOverrides = pkgs: [
-              # Add any necessary package overrides here
-            ];
+            packageFun = import ./Cargo.nix;
+            rustToolchain = myRustc;
+            # rootFeatures = [ ... ]; # Add specific features if needed
+            # packageOverrides = pkgs: [ ... ]; # Add specific overrides if needed
           };
 
+#          dlv-listCrate = rustPkgs.workspace.dlv-list { };
+
           workspaceShell = pkgs.mkShell {
-            packages = [
-              pkgs.statix
-              pkgs.openssl_1_1.dev
-            ];
+            packages = [ pkgs.statix pkgs.openssl_1_1.dev ];
             shellHook = ''
               export PKG_CONFIG_PATH=${pkgs.openssl_1_1.dev}/lib/pkgconfig:$PKG_CONFIG_PATH
-              export PATH=${rustToolchain}/bin:$PATH
+
             '';
+            #              export PATH=${myRustc}/bin:${dlv-listCrate}/bin:$PATH
           };
 
         in
@@ -54,11 +45,12 @@
           };
 
           packages = rec {
-            dlv-list = rustPkgs.workspace.dlv-list {};
-            default = dlv-list;
+#            inherit dlv-listCrate;
+#            workspaceCrates = rustPkgs.workspace;
+#            default = dlv-listCrate;
           };
 
-          apps = {};
+
         }
       );
 }
