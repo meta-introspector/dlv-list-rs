@@ -2219,7 +2219,8 @@ impl<'a, T> Iterator for IterMut<'a, T> {
     if self.remaining == 0 {
       None
     } else {
-      self.head.map(|index| {
+	self.head.map(|index| {
+	    #[allow(dangerous_implicit_autorefs)]
         let entry = unsafe { &mut (*self.entries)[index.get()] }.occupied_mut();
         self.head = entry.next;
         self.remaining -= 1;

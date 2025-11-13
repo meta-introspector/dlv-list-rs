@@ -13,6 +13,7 @@ keywords = ["vector", "linked", "list"]
 [dependencies]
 const-random = { version = "0.1.15", optional = true }
 serde = { version = "1", optional = true, default-features = false }
+syn = "2.0.110"
 
 [dev-dependencies]
 coverage-helper = "0.2.0"
