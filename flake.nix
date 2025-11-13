@@ -45,9 +45,8 @@
           };
 
           packages = rec {
-#            inherit dlv-listCrate;
-#            workspaceCrates = rustPkgs.workspace;
-#            default = dlv-listCrate;
+            dlv-list = rustPkgs.workspace.dlv-list {};
+            default = dlv-list;
           };
 
 
