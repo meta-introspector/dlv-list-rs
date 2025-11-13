@@ -2195,12 +2195,15 @@ impl<T> DoubleEndedIterator for IterMut<'_, T> {
     if self.remaining == 0 {
       None
     } else {
-      self.tail.map(|index| {
-        let entry = unsafe { &mut (&mut (*self.entries))[index.get()] }.occupied_mut();
-        self.tail = entry.previous;
-        self.remaining -= 1;
-        &mut entry.value
-      })
+	self.tail.map(|index| {
+	    #[allow(dangerous_implicit_autorefs)]
+            let entry = unsafe {
+		&mut (&mut
+		      (*self.entries))[index.get()] }.occupied_mut();
+            self.tail = entry.previous;
+            self.remaining -= 1;
+            &mut entry.value
+	})
     }
   }
 }
