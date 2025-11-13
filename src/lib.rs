@@ -2196,7 +2196,7 @@ impl<T> DoubleEndedIterator for IterMut<'_, T> {
       None
     } else {
       self.tail.map(|index| {
-        let entry = unsafe { &mut (*self.entries)[index.get()] }.occupied_mut();
+        let entry = unsafe { &mut (&mut (*self.entries))[index.get()] }.occupied_mut();
         self.tail = entry.previous;
         self.remaining -= 1;
         &mut entry.value
