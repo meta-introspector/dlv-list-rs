@@ -1,0 +1,34 @@
+--- Log for submodule: dlv-list-rs ---
+Running 'cargo update' in "/data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs"...
+     Locking 0 packages to latest compatible versions
+'cargo update' succeeded.
+Running 'cargo vendor' in "/data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs"...
+   Vendoring cfg-if v1.0.4 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cfg-if-1.0.4) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/cfg-if
+   Vendoring const-random v0.1.18 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-random-0.1.18) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/const-random
+   Vendoring const-random-macro v0.1.16 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-random-macro-0.1.16) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/const-random-macro
+   Vendoring coverage-helper v0.2.4 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/coverage-helper-0.2.4) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/coverage-helper
+   Vendoring crunchy v0.2.4 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crunchy-0.2.4) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/crunchy
+   Vendoring getrandom v0.2.16 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.2.16) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/getrandom
+   Vendoring libc v0.2.177 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/libc-0.2.177) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/libc
+   Vendoring once_cell v1.21.3 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/once_cell-1.21.3) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/once_cell
+   Vendoring proc-macro2 v1.0.103 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/proc-macro2-1.0.103) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/proc-macro2
+   Vendoring quote v1.0.42 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/quote-1.0.42) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/quote
+   Vendoring serde v1.0.228 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/serde
+   Vendoring serde_core v1.0.228 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.228) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/serde_core
+   Vendoring serde_derive v1.0.228 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_derive-1.0.228) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/serde_derive
+   Vendoring serde_test v1.0.177 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_test-1.0.177) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/serde_test
+   Vendoring syn v2.0.110 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/syn-2.0.110) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/syn
+   Vendoring tiny-keccak v2.0.2 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tiny-keccak-2.0.2) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/tiny-keccak
+   Vendoring unicode-ident v1.0.22 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.22) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/unicode-ident
+   Vendoring wasi v0.11.1+wasi-snapshot-preview1 (/data/data/com.termux.nix/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wasi-0.11.1+wasi-snapshot-preview1) to /data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs/vendor/wasi
+To use vendored sources, add this to your .cargo/config.toml for this project:
+
+[source.crates-io]
+replace-with = "vendored-sources"
+
+[source.vendored-sources]
+directory = "vendor"
+'cargo vendor' succeeded.
+Running 'cargo2nix -o Cargo.nix' in "/data/data/com.termux.nix/files/home/pick-up-nix2/vendor/rust/cargo2nix/submodules/dlv-list-rs"...
+'cargo2nix' succeeded.
+Submodule tasks completed successfully!
