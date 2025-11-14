@@ -25,7 +25,7 @@ args@{
   cargoConfig ? {},
 }:
 let
-  nixifiedLockHash = "47efa4047961eb0ba9d94cdb9b9b172e9f0ff46c54aff156ff4361862497f343";
+  nixifiedLockHash = "109b80d9cefa44f247030f53e3af583e7967ac51a84ac1c98222e6c4efd47f24";
   workspaceSrc = if args.workspaceSrc == null then ./. else args.workspaceSrc;
   currentLockHash = builtins.hashFile "sha256" (workspaceSrc + /Cargo.lock);
   lockHashIgnored = if ignoreLockHash
@@ -116,6 +116,7 @@ in
     dependencies = {
       ${ if rootFeatures' ? "dlv-list/const-random" then "const_random" else null } = (rustPackages."registry+https://github.com/rust-lang/crates.io-index".const-random."0.1.18" { inherit profileName; }).out;
       ${ if rootFeatures' ? "dlv-list/serde" then "serde" else null } = (rustPackages."registry+https://github.com/rust-lang/crates.io-index".serde."1.0.228" { inherit profileName; }).out;
+      syn = (rustPackages."registry+https://github.com/rust-lang/crates.io-index".syn."2.0.110" { inherit profileName; }).out;
     };
     devDependencies = {
       coverage_helper = (buildRustPackages."registry+https://github.com/rust-lang/crates.io-index".coverage-helper."0.2.4" { profileName = "__noProfile"; }).out;
@@ -239,6 +240,7 @@ in
     src = fetchCratesIo { inherit name version; sha256 = "a99801b5bd34ede4cf3fc688c5919368fea4e4814a4664359503e6015b280aea"; };
     features = builtins.concatLists [
       [ "clone-impls" ]
+      [ "default" ]
       [ "derive" ]
       [ "parsing" ]
       [ "printing" ]

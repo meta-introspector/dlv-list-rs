@@ -17,39 +17,29 @@
               permittedInsecurePackages = [ "openssl-1.1.1w" ];
             };
           };
-
           myRustc = pkgs.rust-bin.nightly."2025-09-16".default;
-
           rustPkgs = pkgs.rustBuilder.makePackageSet {
             packageFun = import ./Cargo.nix;
             rustToolchain = myRustc;
             # rootFeatures = [ ... ]; # Add specific features if needed
             # packageOverrides = pkgs: [ ... ]; # Add specific overrides if needed
           };
-
-#          dlv-listCrate = rustPkgs.workspace.dlv-list { };
-
           workspaceShell = pkgs.mkShell {
             packages = [ pkgs.statix pkgs.openssl_1_1.dev ];
             shellHook = ''
-              export PKG_CONFIG_PATH=${pkgs.openssl_1_1.dev}/lib/pkgconfig:$PKG_CONFIG_PATH
-
+!              export PKG_CONFIG_PATH=${pkgs.openssl_1_1.dev}/lib/pkgconfig:$PKG_CONFIG_PATH
             '';
-            #              export PATH=${myRustc}/bin:${dlv-listCrate}/bin:$PATH
           };
-
         in
-        rec {
-          devShells = {
-            default = workspaceShell;
-          };
-
-          packages = rec {
-            dlv-list = rustPkgs.workspace.dlv-list {};
-            default = dlv-list;
-          };
-
-
+          rec {
+            devShells = {
+              default = workspaceShell;
+            };
+            
+            packages = rec {
+              dlv-list = rustPkgs.workspace.dlv-list {};
+              default = dlv-list;
+            };
         }
       );
 }
